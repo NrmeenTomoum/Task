@@ -11,6 +11,8 @@
 		0407E5402049A8A90039877D /* LocationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E53F2049A8A90039877D /* LocationServiceProtocol.swift */; };
 		0407E5422049FA720039877D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E5412049FA720039877D /* Constants.swift */; };
 		0407E544204A025E0039877D /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E543204A025E0039877D /* WeatherViewController.swift */; };
+		0407E546204A05A90039877D /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E545204A05A90039877D /* LocationModel.swift */; };
+		0407E548204A191A0039877D /* HomePage+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E547204A191A0039877D /* HomePage+TableView.swift */; };
 		043501C820496DAB00C51609 /* TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043501C720496DAB00C51609 /* TaskTests.swift */; };
 		043501E720496E6500C51609 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043501D420496E6500C51609 /* AppDelegate.swift */; };
 		043501E920496E6500C51609 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043501D920496E6500C51609 /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		0407E53F2049A8A90039877D /* LocationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceProtocol.swift; sourceTree = "<group>"; };
 		0407E5412049FA720039877D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0407E543204A025E0039877D /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		0407E545204A05A90039877D /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		0407E547204A191A0039877D /* HomePage+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomePage+TableView.swift"; sourceTree = "<group>"; };
 		043501AF20496DAB00C51609 /* Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		043501C320496DAB00C51609 /* TaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		043501C720496DAB00C51609 /* TaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTests.swift; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 			children = (
 				043501E320496E6500C51609 /* HomePage.swift */,
 				0407E543204A025E0039877D /* WeatherViewController.swift */,
+				0407E547204A191A0039877D /* HomePage+TableView.swift */,
 			);
 			path = "🔨Controllers";
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 		043501E420496E6500C51609 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0407E545204A05A90039877D /* LocationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -392,7 +398,6 @@
 				"${BUILT_PRODUCTS_DIR}/GooglePlacesSearchController/GooglePlacesSearchController.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -400,7 +405,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GooglePlacesSearchController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SearchTextField.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -447,12 +451,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0407E546204A05A90039877D /* LocationModel.swift in Sources */,
 				043501ED20496E6500C51609 /* HomePage.swift in Sources */,
 				043501E720496E6500C51609 /* AppDelegate.swift in Sources */,
 				0407E53E204996F20039877D /* LocationService.swift in Sources */,
 				043501EE20496E6600C51609 /* ReachabilityService.swift in Sources */,
 				0407E544204A025E0039877D /* WeatherViewController.swift in Sources */,
 				0407E5402049A8A90039877D /* LocationServiceProtocol.swift in Sources */,
+				0407E548204A191A0039877D /* HomePage+TableView.swift in Sources */,
 				0407E5422049FA720039877D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

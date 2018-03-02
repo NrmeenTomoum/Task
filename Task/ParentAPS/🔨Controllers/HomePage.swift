@@ -8,16 +8,16 @@
 
 import UIKit
 import CoreLocation
-import SearchTextField
 import GooglePlacesSearchController
 class HomePage: UIViewController,CLLocationManagerDelegate,LocationServiceProtocol{
-    
+    var citiesArray = [LocationModel]()
     let GoogleMapsAPIServerKey = "AIzaSyBvjEp5VmB8gvEKUtlUqYaHh5j1d4dzJz0"
     
     @IBOutlet weak var outletOfSearchResultTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         LocationService.shared.delegate = self
     }
     
     @IBAction func ActionOfAddCitiy(_ sender: Any) {
@@ -31,8 +31,9 @@ class HomePage: UIViewController,CLLocationManagerDelegate,LocationServiceProtoc
             print(place.ISOcountryCode , place.locality)
             
             let storyBoard = UIStoryboard(name: Constants.StoryBoardIDs.main, bundle: nil)
-            let homeVC = storyBoard.instantiateViewController(withIdentifier: Constants.StoryBoardIDs.weatherView) as! WeatherViewController
-            self.navigationController?.pushViewController(homeVC, animated: false)
+            let weatherViewController = storyBoard.instantiateViewController(withIdentifier: Constants.StoryBoardIDs.weatherView) as! WeatherViewController
+            weatherViewController.locationModel = LocationModel(citiyName: place.locality, ISOcountryCode:place.ISOcountryCode )
+            self.navigationController?.pushViewController(weatherViewController, animated: false)
             controller.isActive = false
         }
         present(controller, animated: true, completion: nil)
@@ -48,21 +49,23 @@ extension HomePage
         LocationService.shared.locationManager.stopUpdatingLocation()
         if let containsPlacemark = placeMarks {
             let administrativeArea = (containsPlacemark.administrativeArea != nil) ? containsPlacemark.administrativeArea : ""
-            print( "===========>",administrativeArea ?? "" )
+           
+            let isoCountry = (containsPlacemark.isoCountryCode != nil) ? containsPlacemark.isoCountryCode : ""
+            if citiesArray.count == 1
+            {
+            citiesArray.removeAll()
+            citiesArray.append(LocationModel(citiyName: administrativeArea!, ISOcountryCode: isoCountry!))
+            }
+              print( "===========>",administrativeArea ?? "" )
+            outletOfSearchResultTableView.reloadData()
+          
+        }
+        else
+        {
+            
+            
+            
         }
     }
 }
-// tableView
-extension HomePage : UITableViewDelegate ,UITableViewDataSource
-{
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return    0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell ()
-        return cell
-    }
-    
-}
+
