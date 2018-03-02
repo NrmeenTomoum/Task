@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Task
+//  ParentAPSTask
 //
-//  Created by mac on 3/2/18.
+//  Created by mac on 2/28/18.
 //  Copyright © 2018 NermeenTomoum. All rights reserved.
 //
 
@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        LocationService.shared.getPermission()
         return true
     }
 
