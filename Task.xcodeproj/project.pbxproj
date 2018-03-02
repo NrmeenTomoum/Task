@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0407E53E204996F20039877D /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E53D204996F20039877D /* LocationService.swift */; };
 		0407E5402049A8A90039877D /* LocationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E53F2049A8A90039877D /* LocationServiceProtocol.swift */; };
+		0407E5422049FA720039877D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E5412049FA720039877D /* Constants.swift */; };
+		0407E544204A025E0039877D /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E543204A025E0039877D /* WeatherViewController.swift */; };
 		043501C820496DAB00C51609 /* TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043501C720496DAB00C51609 /* TaskTests.swift */; };
 		043501E720496E6500C51609 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043501D420496E6500C51609 /* AppDelegate.swift */; };
 		043501E920496E6500C51609 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043501D920496E6500C51609 /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* Begin PBXFileReference section */
 		0407E53D204996F20039877D /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		0407E53F2049A8A90039877D /* LocationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceProtocol.swift; sourceTree = "<group>"; };
+		0407E5412049FA720039877D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0407E543204A025E0039877D /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		043501AF20496DAB00C51609 /* Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		043501C320496DAB00C51609 /* TaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		043501C720496DAB00C51609 /* TaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTests.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 				043501D720496E6500C51609 /* Model */,
 				043501D820496E6500C51609 /* View */,
 				043501DC20496E6500C51609 /* Service */,
+				0407E5412049FA720039877D /* Constants.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				043501E320496E6500C51609 /* HomePage.swift */,
+				0407E543204A025E0039877D /* WeatherViewController.swift */,
 			);
 			path = "🔨Controllers";
 			sourceTree = "<group>";
@@ -383,6 +389,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Task/Pods-Task-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GooglePlacesSearchController/GooglePlacesSearchController.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework",
@@ -390,6 +397,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GooglePlacesSearchController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SearchTextField.framework",
@@ -405,9 +413,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Task/Pods-Task-resources.sh",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -440,7 +451,9 @@
 				043501E720496E6500C51609 /* AppDelegate.swift in Sources */,
 				0407E53E204996F20039877D /* LocationService.swift in Sources */,
 				043501EE20496E6600C51609 /* ReachabilityService.swift in Sources */,
+				0407E544204A025E0039877D /* WeatherViewController.swift in Sources */,
 				0407E5402049A8A90039877D /* LocationServiceProtocol.swift in Sources */,
+				0407E5422049FA720039877D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
