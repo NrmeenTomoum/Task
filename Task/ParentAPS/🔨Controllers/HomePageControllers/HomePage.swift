@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 import GooglePlacesSearchController
-class HomePage: UIViewController,CLLocationManagerDelegate,LocationServiceProtocol{
+class HomePage: UIViewController,CLLocationManagerDelegate{
    // MARK: - Variable
     let GoogleMapsAPIServerKey = "AIzaSyBvjEp5VmB8gvEKUtlUqYaHh5j1d4dzJz0"
     var citiesArray = [LocationModel]()

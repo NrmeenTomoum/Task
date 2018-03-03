@@ -36,11 +36,12 @@ class LocationService: UIViewController,CLLocationManagerDelegate{
                 let pm = placemarks?[0]
                 self.delegate?.updateLocationRespose(pm)
             } else {
-                print("Problem with the data received from geocoder")
+                self.delegate?.updateLocationdidFailWithError(errorMessage: "Problem with the data received from geocoder")
             }
         })
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error while updating location " + error.localizedDescription)
+        delegate?.updateLocationdidFailWithError(errorMessage: "Error while updating location ")
+        //print("Error while updating location " + error.localizedDescription)
     }
 }

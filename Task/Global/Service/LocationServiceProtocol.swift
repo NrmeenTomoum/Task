@@ -10,4 +10,5 @@ import Foundation
 import CoreLocation
 protocol LocationServiceProtocol {
     func updateLocationRespose(_ placeMarks:CLPlacemark?)
+    func updateLocationdidFailWithError(errorMessage : String)
 }

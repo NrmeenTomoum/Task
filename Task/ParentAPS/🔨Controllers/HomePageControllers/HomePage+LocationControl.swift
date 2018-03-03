@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 // Location
-extension HomePage
+extension HomePage : LocationServiceProtocol
 {
     // MARK: -  variable
   
@@ -35,5 +35,8 @@ extension HomePage
             
             
         }
+    }
+    func updateLocationdidFailWithError(errorMessage: String) {
+        
     }
 }
