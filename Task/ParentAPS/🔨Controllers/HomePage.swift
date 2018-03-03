@@ -19,6 +19,9 @@ class HomePage: UIViewController,CLLocationManagerDelegate,LocationServiceProtoc
         super.viewDidLoad()
          LocationService.shared.delegate = self
     }
+    override func viewWillAppear(_ animated: Bool) {
+        outletOfSearchResultTableView.reloadData()
+    }
     
     @IBAction func ActionOfAddCitiy(_ sender: Any) {
         
@@ -29,7 +32,23 @@ class HomePage: UIViewController,CLLocationManagerDelegate,LocationServiceProtoc
         controller.didSelectGooglePlace {
             (place) -> Void in
             print(place.ISOcountryCode , place.locality)
-            
+            if self.citiesArray.count < 5
+            {
+                var isExist = false
+                for item in self.citiesArray
+                {
+                    if item.citiyName == place.locality && item.ISOcountryCode == place.ISOcountryCode
+                    {
+                         isExist = true
+                        break;
+                    }
+                    
+                }
+                if  isExist == false
+                {
+                self.citiesArray.append(LocationModel(citiyName: place.locality, ISOcountryCode:  place.ISOcountryCode))
+                }
+            }
             let storyBoard = UIStoryboard(name: Constants.StoryBoardIDs.main, bundle: nil)
             let weatherViewController = storyBoard.instantiateViewController(withIdentifier: Constants.StoryBoardIDs.weatherView) as! WeatherViewController
             weatherViewController.locationModel = LocationModel(citiyName: place.locality, ISOcountryCode:place.ISOcountryCode )
