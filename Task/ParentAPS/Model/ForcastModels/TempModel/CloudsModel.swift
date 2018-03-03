@@ -9,5 +9,8 @@
 import Foundation
 class CloudsModel {
     var all : Int = 0
+    init(json: [String: Any]) {
+        self.all = (json["all"] as? Int)!
+    }
 }
 

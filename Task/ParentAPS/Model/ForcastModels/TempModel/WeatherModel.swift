@@ -13,4 +13,19 @@ class WeatherModel {
     var main : String = ""
     var description : String = ""
     var icon : String = ""
+    
+    init(json : [String:Any]) {
+        guard let id = json["id"] as? Int,
+        let main = json["main"] as? String,
+        let description = json["description"] as? String,
+        let icon = json["icon"] as? String
+        else {
+            print("error")
+            return
+        }
+        self.id = id
+        self.main = main
+        self.description = description
+        self.icon = icon
+    }
 }

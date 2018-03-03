@@ -52,7 +52,8 @@ class HomePage: UIViewController,CLLocationManagerDelegate{
             }
             let storyBoard = UIStoryboard(name: Constants.StoryBoardIDs.main, bundle: nil)
             let weatherViewController = storyBoard.instantiateViewController(withIdentifier: Constants.StoryBoardIDs.weatherView) as! WeatherViewController
-            weatherViewController.locationModel = LocationModel(citiyName: place.locality, ISOcountryCode:place.ISOcountryCode )
+            var cityName : String = place.locality
+            weatherViewController.locationModel = LocationModel(citiyName: cityName.removeWhitespace(), ISOcountryCode:place.ISOcountryCode )
             self.navigationController?.pushViewController(weatherViewController, animated: false)
             controller.isActive = false
         }
@@ -63,4 +64,14 @@ class HomePage: UIViewController,CLLocationManagerDelegate{
     
 }
 
+
+extension String {
+    func replace(_ string:String, replacement:String) -> String {
+        return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literal, range: nil)
+    }
+    
+    func removeWhitespace() -> String {
+         return self.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+    }
+}
 

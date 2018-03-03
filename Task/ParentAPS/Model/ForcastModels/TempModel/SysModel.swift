@@ -9,4 +9,7 @@
 import Foundation
 class SysModel {
     var pod  : String = ""
+    init(json: [String: Any]) {
+        self.pod = (json["pod"] as? String)!
+    }
 }

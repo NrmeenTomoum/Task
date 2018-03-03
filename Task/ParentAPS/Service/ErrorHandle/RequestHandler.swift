@@ -27,9 +27,6 @@ class RequestHandler
                                 
                                 let jsonResponse = response.result.value as! [String:AnyObject]
                                  NSLog("RESPONSE", jsonResponse)
-                                let response = try GetPostsResponse(json: json)
-                                completion(response)
-                                
                                 success(jsonResponse)
                               case .failure(let error):
                                print("No  Connection")
