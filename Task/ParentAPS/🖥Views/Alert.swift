@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-class Alert {
+class AlertView {
     
     class func alert(_ title: String , message :String , alertActions:[String] , navigationVC : UINavigationController) {
         //let navigationVC = Initilizer.getMainNavigation()

@@ -34,6 +34,9 @@ extension HomePage : UITableViewDelegate ,UITableViewDataSource
         
         let storyBoard = UIStoryboard(name: Constants.StoryBoardIDs.main, bundle: nil)
         let weatherViewController = storyBoard.instantiateViewController(withIdentifier: Constants.StoryBoardIDs.weatherView) as! WeatherViewController
+        print("-=====>", citiesArray[(indexPath as NSIndexPath).row].citiyName, citiesArray[(indexPath as NSIndexPath).row].ISOcountryCode )
+        weatherViewController.locationModel = LocationModel(citiyName: citiesArray[(indexPath as NSIndexPath).row].citiyName, ISOcountryCode:citiesArray[(indexPath as NSIndexPath).row].ISOcountryCode )
+        
         self.navigationController?.pushViewController(weatherViewController, animated: false)
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
