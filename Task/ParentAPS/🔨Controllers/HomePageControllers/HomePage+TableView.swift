@@ -8,12 +8,11 @@
 
 import Foundation
 import UIKit
-import CoreLocation
 import GooglePlacesSearchController
 // tableView
 extension HomePage : UITableViewDelegate ,UITableViewDataSource
 {
-    
+      // MARK: - function
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if citiesArray.count == 0
         {

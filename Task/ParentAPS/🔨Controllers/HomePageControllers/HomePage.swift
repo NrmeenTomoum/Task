@@ -10,11 +10,12 @@ import UIKit
 import CoreLocation
 import GooglePlacesSearchController
 class HomePage: UIViewController,CLLocationManagerDelegate,LocationServiceProtocol{
-    var citiesArray = [LocationModel]()
+   // MARK: - Variable
     let GoogleMapsAPIServerKey = "AIzaSyBvjEp5VmB8gvEKUtlUqYaHh5j1d4dzJz0"
-    
+    var citiesArray = [LocationModel]()
+  
     @IBOutlet weak var outletOfSearchResultTableView: UITableView!
-    
+      // MARK: - function
     override func viewDidLoad() {
         super.viewDidLoad()
          LocationService.shared.delegate = self
@@ -61,30 +62,5 @@ class HomePage: UIViewController,CLLocationManagerDelegate,LocationServiceProtoc
    
     
 }
-// Location
-extension HomePage
-{
-    func updateLocationRespose(_ placeMarks: CLPlacemark?) {
-        LocationService.shared.locationManager.stopUpdatingLocation()
-        if let containsPlacemark = placeMarks {
-            let administrativeArea = (containsPlacemark.administrativeArea != nil) ? containsPlacemark.administrativeArea : ""
-           
-            let isoCountry = (containsPlacemark.isoCountryCode != nil) ? containsPlacemark.isoCountryCode : ""
-            if citiesArray.count == 1
-            {
-            citiesArray.removeAll()
-            citiesArray.append(LocationModel(citiyName: administrativeArea!, ISOcountryCode: isoCountry!))
-            }
-              print( "===========>",administrativeArea ?? "" )
-            outletOfSearchResultTableView.reloadData()
-          
-        }
-        else
-        {
-            
-            
-            
-        }
-    }
-}
+
 
